@@ -12,11 +12,13 @@
 
 @property (strong) NSURLRequest *request;
 @property (strong) NSDictionary *postParameters;
+@property (strong) NSData *customBody;
 @property (strong) NSArray *fieldOrdering;
 @property (strong) NSString *HTTPUsername;
 @property (strong) NSString *HTTPPassword;
 @property (nonatomic, strong) NSArray *cookiesReturned;
 @property (nonatomic, assign) BOOL addRadarSpoofingHeaders;
+@property (nonatomic, assign) BOOL sendPostParamsAsJSON;
 
 @property (assign) BOOL useMultipartRatherThanURLEncoded;
 

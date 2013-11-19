@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		98EACACC158A86460078D06C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EACACB158A86460078D06C /* Security.framework */; };
 		98EACAD0158A89670078D06C /* PasswordStoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EACACF158A89670078D06C /* PasswordStoring.m */; };
+		A7E7388D16FCB367009097ED /* QRWordpressSubmissionService.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E7388C16FCB367009097ED /* QRWordpressSubmissionService.m */; };
+		A7E7389116FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E7388F16FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.m */; };
+		A7E7389216FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7E7389016FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.xib */; };
+		A7E7391F16FCC106009097ED /* libDTXMLRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E7391E16FCC106009097ED /* libDTXMLRPC.a */; };
 		B4688666158FF4D900C94B09 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B4688665158FF4D900C94B09 /* README.md */; };
 		B4688669158FF91A00C94B09 /* Appicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = B4688667158FF91A00C94B09 /* Appicon.icns */; };
 		B4EC27EC1591577000E79E8B /* libPTHotkey-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EC27EB1591577000E79E8B /* libPTHotkey-OSX.a */; };
@@ -33,13 +37,20 @@
 		E169F3BD15E50D760019383F /* QRAppDotNetSubmissionService.m in Sources */ = {isa = PBXBuildFile; fileRef = E169F3BC15E50D760019383F /* QRAppDotNetSubmissionService.m */; };
 		E169F3C115E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E169F3BF15E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.m */; };
 		E169F3C215E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E169F3C015E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.xib */; };
+		E17B6D8517E1DB4D00026899 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = E17B6D8417E1DB4D00026899 /* Products.json */; };
+		E17B6D8A17E1F73700026899 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B6D8917E1F73700026899 /* OrderedDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E17F4CF815E3EBB000FE8A33 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F4CF715E3EBB000FE8A33 /* NSString+URLEncoding.m */; };
+		E18A7CA116E0F26300B4073F /* ADNLogoTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = E18A7CA016E0F26300B4073F /* ADNLogoTemplate.png */; };
+		E18A7CA316E0F78C00B4073F /* AppleLogoTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = E18A7CA216E0F78C00B4073F /* AppleLogoTemplate.png */; };
+		E18A7CA516E0FB8300B4073F /* OpenRadarTemplate.tif in Resources */ = {isa = PBXBuildFile; fileRef = E18A7CA416E0FB8300B4073F /* OpenRadarTemplate.tif */; };
 		E19CFC6E159A002E00879280 /* QRRadar.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CFC6D159A002E00879280 /* QRRadar.m */; };
 		E19CFC71159A010600879280 /* QRSubmissionService.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CFC70159A010600879280 /* QRSubmissionService.m */; };
 		E19CFC75159A037300879280 /* QRRadarSubmissionService.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CFC74159A037300879280 /* QRRadarSubmissionService.m */; };
+		E1A86644179594900087C806 /* WordpressLogoTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A866431795948F0087C806 /* WordpressLogoTemplate.png */; };
 		E1B6F9DC15E3E268004F37F7 /* QROpenRadarSubmissionService.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B6F9DB15E3E268004F37F7 /* QROpenRadarSubmissionService.m */; };
 		E1B6F9E015E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B6F9DE15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.m */; };
 		E1B6F9E115E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1B6F9DF15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.xib */; };
+		E1BE144F1708A46B00F7A853 /* QRAppListOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BE144E1708A46B00F7A853 /* QRAppListOutlineView.m */; };
 		E1C10ACA158A7D02003A3C01 /* License in Resources */ = {isa = PBXBuildFile; fileRef = E1C10AC9158A7D02003A3C01 /* License */; };
 		E1C10AE71593B4C8003A3C01 /* QRWebScraper.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C10AE61593B4C8003A3C01 /* QRWebScraper.m */; };
 		E1C99998168B42C70049C7CD /* MenubarTemplate@2x.tif in Resources */ = {isa = PBXBuildFile; fileRef = E1C99997168B42C70049C7CD /* MenubarTemplate@2x.tif */; };
@@ -76,6 +87,23 @@
 		ECBC726115E03E4500198D27 /* NSButton+QuickRadar.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBC726015E03E4500198D27 /* NSButton+QuickRadar.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A7B09EB416FCCEC0006C32AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7E7390116FCC0F4009097ED /* DTXMLRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7E7384016FC44A1009097ED;
+			remoteInfo = "Wordpress Demo";
+		};
+		A7B09EB616FCCEC0006C32AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7E7390116FCC0F4009097ED /* DTXMLRPC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7E738CB16FCBB81009097ED;
+			remoteInfo = DTXMLRPC;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		E1F8590D158A2EE5005F77DA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -94,6 +122,13 @@
 		98EACACB158A86460078D06C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		98EACACE158A89670078D06C /* PasswordStoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordStoring.h; sourceTree = "<group>"; };
 		98EACACF158A89670078D06C /* PasswordStoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordStoring.m; sourceTree = "<group>"; };
+		A7E7388B16FCB367009097ED /* QRWordpressSubmissionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRWordpressSubmissionService.h; sourceTree = "<group>"; };
+		A7E7388C16FCB367009097ED /* QRWordpressSubmissionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRWordpressSubmissionService.m; sourceTree = "<group>"; };
+		A7E7388E16FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRWordpressSubmissionServicePreferencesViewController.h; sourceTree = "<group>"; };
+		A7E7388F16FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRWordpressSubmissionServicePreferencesViewController.m; sourceTree = "<group>"; };
+		A7E7389016FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRWordpressSubmissionServicePreferencesViewController.xib; sourceTree = "<group>"; };
+		A7E7390116FCC0F4009097ED /* DTXMLRPC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DTXMLRPC.xcodeproj; path = DTXMLRPC/DTXMLRPC.xcodeproj; sourceTree = "<group>"; };
+		A7E7391E16FCC106009097ED /* libDTXMLRPC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDTXMLRPC.a; path = Externals/DTXMLRPC/build/Release/libDTXMLRPC.a; sourceTree = "<group>"; };
 		B4688665158FF4D900C94B09 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		B4688667158FF91A00C94B09 /* Appicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Appicon.icns; sourceTree = "<group>"; };
 		B4EC27EB1591577000E79E8B /* libPTHotkey-OSX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPTHotkey-OSX.a"; path = "PTHotkey/libPTHotkey-OSX.a"; sourceTree = "<group>"; };
@@ -130,19 +165,28 @@
 		E169F3BE15E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRAppDotNetSubmissionServicePreferencesViewController.h; sourceTree = "<group>"; };
 		E169F3BF15E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRAppDotNetSubmissionServicePreferencesViewController.m; sourceTree = "<group>"; };
 		E169F3C015E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRAppDotNetSubmissionServicePreferencesViewController.xib; sourceTree = "<group>"; };
+		E17B6D8417E1DB4D00026899 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; };
+		E17B6D8817E1F73700026899 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
+		E17B6D8917E1F73700026899 /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
 		E17F4CF615E3EBB000FE8A33 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		E17F4CF715E3EBB000FE8A33 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		E18A7CA016E0F26300B4073F /* ADNLogoTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADNLogoTemplate.png; sourceTree = "<group>"; };
+		E18A7CA216E0F78C00B4073F /* AppleLogoTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppleLogoTemplate.png; sourceTree = "<group>"; };
+		E18A7CA416E0FB8300B4073F /* OpenRadarTemplate.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OpenRadarTemplate.tif; sourceTree = "<group>"; };
 		E19CFC6C159A002E00879280 /* QRRadar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRRadar.h; sourceTree = "<group>"; };
 		E19CFC6D159A002E00879280 /* QRRadar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRRadar.m; sourceTree = "<group>"; };
 		E19CFC6F159A010600879280 /* QRSubmissionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRSubmissionService.h; sourceTree = "<group>"; };
 		E19CFC70159A010600879280 /* QRSubmissionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRSubmissionService.m; sourceTree = "<group>"; };
 		E19CFC73159A037300879280 /* QRRadarSubmissionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRRadarSubmissionService.h; sourceTree = "<group>"; };
 		E19CFC74159A037300879280 /* QRRadarSubmissionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRRadarSubmissionService.m; sourceTree = "<group>"; };
+		E1A866431795948F0087C806 /* WordpressLogoTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordpressLogoTemplate.png; sourceTree = "<group>"; };
 		E1B6F9DA15E3E268004F37F7 /* QROpenRadarSubmissionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QROpenRadarSubmissionService.h; sourceTree = "<group>"; };
 		E1B6F9DB15E3E268004F37F7 /* QROpenRadarSubmissionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QROpenRadarSubmissionService.m; sourceTree = "<group>"; };
 		E1B6F9DD15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QROpenRadarSubmissionServicePreferencesViewController.h; sourceTree = "<group>"; };
 		E1B6F9DE15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QROpenRadarSubmissionServicePreferencesViewController.m; sourceTree = "<group>"; };
 		E1B6F9DF15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QROpenRadarSubmissionServicePreferencesViewController.xib; sourceTree = "<group>"; };
+		E1BE144D1708A46B00F7A853 /* QRAppListOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRAppListOutlineView.h; sourceTree = "<group>"; };
+		E1BE144E1708A46B00F7A853 /* QRAppListOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRAppListOutlineView.m; sourceTree = "<group>"; };
 		E1C10AC9158A7D02003A3C01 /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = License; path = ../License; sourceTree = "<group>"; };
 		E1C10AE51593B4C8003A3C01 /* QRWebScraper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRWebScraper.h; sourceTree = "<group>"; };
 		E1C10AE61593B4C8003A3C01 /* QRWebScraper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRWebScraper.m; sourceTree = "<group>"; };
@@ -204,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E7391F16FCC106009097ED /* libDTXMLRPC.a in Frameworks */,
 				98EACACC158A86460078D06C /* Security.framework in Frameworks */,
 				E1CC51AE156259AC0027FB83 /* Carbon.framework in Frameworks */,
 				E1CC518E156257BF0027FB83 /* Cocoa.framework in Frameworks */,
@@ -216,6 +261,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7B09EB016FCCEC0006C32AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7B09EB516FCCEC0006C32AA /* DTXMLRPC.app */,
+				A7B09EB716FCCEC0006C32AA /* libDTXMLRPC.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7E7388A16FCB308009097ED /* Wordpress */ = {
+			isa = PBXGroup;
+			children = (
+				E1A866431795948F0087C806 /* WordpressLogoTemplate.png */,
+				A7E7388B16FCB367009097ED /* QRWordpressSubmissionService.h */,
+				A7E7388C16FCB367009097ED /* QRWordpressSubmissionService.m */,
+				A7E7388E16FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.h */,
+				A7E7388F16FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.m */,
+				A7E7389016FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.xib */,
+			);
+			name = Wordpress;
+			sourceTree = "<group>";
+		};
+		A7E738DD16FCC0F4009097ED /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				A7E7390116FCC0F4009097ED /* DTXMLRPC.xcodeproj */,
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
 		E157B19616D385290026EC3B /* ShortcutRecorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +340,7 @@
 		E169F3B915E50D580019383F /* App.net */ = {
 			isa = PBXGroup;
 			children = (
+				E18A7CA016E0F26300B4073F /* ADNLogoTemplate.png */,
 				E169F3BB15E50D760019383F /* QRAppDotNetSubmissionService.h */,
 				E169F3BC15E50D760019383F /* QRAppDotNetSubmissionService.m */,
 				E169F3BE15E50D990019383F /* QRAppDotNetSubmissionServicePreferencesViewController.h */,
@@ -301,6 +377,7 @@
 		E19CFC6A1599FFFE00879280 /* Submission Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7E7388A16FCB308009097ED /* Wordpress */,
 				E157B1E716D3B9940026EC3B /* Twitter */,
 				E19CFC72159A035E00879280 /* Radar */,
 				E1B6F9D815E3E22C004F37F7 /* Open Radar */,
@@ -322,6 +399,7 @@
 		E19CFC72159A035E00879280 /* Radar */ = {
 			isa = PBXGroup;
 			children = (
+				E18A7CA216E0F78C00B4073F /* AppleLogoTemplate.png */,
 				E19CFC73159A037300879280 /* QRRadarSubmissionService.h */,
 				E19CFC74159A037300879280 /* QRRadarSubmissionService.m */,
 				E164353D159DFCE50063096B /* QRRadarSubmissionServicePreferencesViewController.h */,
@@ -334,6 +412,7 @@
 		E1B6F9D815E3E22C004F37F7 /* Open Radar */ = {
 			isa = PBXGroup;
 			children = (
+				E18A7CA416E0FB8300B4073F /* OpenRadarTemplate.tif */,
 				E1B6F9DA15E3E268004F37F7 /* QROpenRadarSubmissionService.h */,
 				E1B6F9DB15E3E268004F37F7 /* QROpenRadarSubmissionService.m */,
 				E1B6F9DD15E3E284004F37F7 /* QROpenRadarSubmissionServicePreferencesViewController.h */,
@@ -358,6 +437,8 @@
 				E164357A15A2FC770063096B /* NSError+Additions.m */,
 				E17F4CF615E3EBB000FE8A33 /* NSString+URLEncoding.h */,
 				E17F4CF715E3EBB000FE8A33 /* NSString+URLEncoding.m */,
+				E17B6D8817E1F73700026899 /* OrderedDictionary.h */,
+				E17B6D8917E1F73700026899 /* OrderedDictionary.m */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -365,6 +446,7 @@
 		E1CC517E156257BF0027FB83 = {
 			isa = PBXGroup;
 			children = (
+				A7E738DD16FCC0F4009097ED /* Externals */,
 				E1F53055161359CA000FCAC3 /* Readme.md */,
 				E1CC5193156257BF0027FB83 /* QuickRadar */,
 				E1CC5194156257BF0027FB83 /* Supporting Files */,
@@ -384,6 +466,7 @@
 		E1CC518C156257BF0027FB83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7E7391E16FCC106009097ED /* libDTXMLRPC.a */,
 				E164358715A34FBB0063096B /* Sparkle.framework */,
 				B4EC27EB1591577000E79E8B /* libPTHotkey-OSX.a */,
 				E1CC51AD156259AC0027FB83 /* Carbon.framework */,
@@ -414,6 +497,7 @@
 				E157B19616D385290026EC3B /* ShortcutRecorder */,
 				E1CC51A2156257BF0027FB83 /* MainMenu.xib */,
 				E1CC51B415625C5B0027FB83 /* Config.plist */,
+				E17B6D8417E1DB4D00026899 /* Products.json */,
 				E1F53052161359AA000FCAC3 /* Config */,
 				E19CFC681599FF1800879280 /* New Radar Window */,
 				E1ED7E40159DE15F0033D7C0 /* Preferences Window */,
@@ -488,6 +572,8 @@
 				ECBC724315E02E6E00198D27 /* QRAppListManager.m */,
 				ECBC724615E02E6E00198D27 /* QRAppListTableCellView.h */,
 				ECBC724715E02E6E00198D27 /* QRAppListTableCellView.m */,
+				E1BE144D1708A46B00F7A853 /* QRAppListOutlineView.h */,
+				E1BE144E1708A46B00F7A853 /* QRAppListOutlineView.m */,
 				ECBC724815E02E6E00198D27 /* QRAppListViewController.h */,
 				ECBC724915E02E6E00198D27 /* QRAppListViewController.m */,
 				ECBC724A15E02E6E00198D27 /* QRAppListViewController.xib */,
@@ -544,12 +630,35 @@
 			mainGroup = E1CC517E156257BF0027FB83;
 			productRefGroup = E1CC518A156257BF0027FB83 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A7B09EB016FCCEC0006C32AA /* Products */;
+					ProjectRef = A7E7390116FCC0F4009097ED /* DTXMLRPC.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E1CC5188156257BF0027FB83 /* QuickRadar */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A7B09EB516FCCEC0006C32AA /* DTXMLRPC.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DTXMLRPC.app;
+			remoteRef = A7B09EB416FCCEC0006C32AA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A7B09EB716FCCEC0006C32AA /* libDTXMLRPC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDTXMLRPC.a;
+			remoteRef = A7B09EB616FCCEC0006C32AA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E1CC5187156257BF0027FB83 /* Resources */ = {
@@ -580,6 +689,12 @@
 				E1F53056161359CA000FCAC3 /* Readme.md in Resources */,
 				E1C99998168B42C70049C7CD /* MenubarTemplate@2x.tif in Resources */,
 				E157B1A916D388FB0026EC3B /* QRFileDuplicateWindow.xib in Resources */,
+				E18A7CA116E0F26300B4073F /* ADNLogoTemplate.png in Resources */,
+				E18A7CA316E0F78C00B4073F /* AppleLogoTemplate.png in Resources */,
+				E18A7CA516E0FB8300B4073F /* OpenRadarTemplate.tif in Resources */,
+				A7E7389216FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.xib in Resources */,
+				E1A86644179594900087C806 /* WordpressLogoTemplate.png in Resources */,
+				E17B6D8517E1DB4D00026899 /* Products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +740,10 @@
 				E157B1A516D3853D0026EC3B /* SRValidator.m in Sources */,
 				E157B1AC16D38A450026EC3B /* QRFileDuplicateWindowController.m in Sources */,
 				E157B1EA16D3B9B00026EC3B /* QRTwitterSubmissionService.m in Sources */,
+				E1BE144F1708A46B00F7A853 /* QRAppListOutlineView.m in Sources */,
+				A7E7388D16FCB367009097ED /* QRWordpressSubmissionService.m in Sources */,
+				A7E7389116FCB4B4009097ED /* QRWordpressSubmissionServicePreferencesViewController.m in Sources */,
+				E17B6D8A17E1F73700026899 /* OrderedDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,7 +839,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/PTHotkey\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "Externals/DTXMLRPC/**";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -740,7 +862,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/PTHotkey\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "Externals/DTXMLRPC/**";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

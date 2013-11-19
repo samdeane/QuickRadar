@@ -8,6 +8,7 @@
 
 #import "QRSubmissionService.h"
 
+NSString * const QRWordpressSubmissionServiceIdentifier = @"QRWordpressSubmissionServiceIdentifier";
 NSString * const QRRadarSubmissionServiceIdentifier = @"QRRadarSubmissionServiceIdentifier";
 NSString * const QROpenRadarSubmissionServiceIdentifier = @"QROpenRadarSubmissionServiceIdentifier";
 NSString * const QRTwitterSubmissionServiceIdentifier = @"QRTwitterSubmissionServiceIdentifier";
@@ -36,7 +37,7 @@ static NSMutableDictionary *_services;
 	
 	for (NSString *serviceID in services)
 	{
-		Class serviceClass = [services objectForKey:serviceID];
+		Class serviceClass = services[serviceID];
 		
 		if (![serviceClass isAvailable])
 		{
@@ -48,7 +49,7 @@ static NSMutableDictionary *_services;
 			continue;
 		}
 		
-		[dict setObject:[serviceClass checkBoxString] forKey:serviceID];
+		dict[serviceID] = [serviceClass checkBoxString];
 	}
 	
 	return [NSDictionary dictionaryWithDictionary:dict];
@@ -65,7 +66,7 @@ static NSMutableDictionary *_services;
 		
 		NSString *identifier = [service identifier];
 		
-		[_services setObject:service forKey:identifier];
+		_services[identifier] = service;
 		
 	}
 }
@@ -135,6 +136,11 @@ static NSMutableDictionary *_services;
 - (CGFloat)progress
 {
     return 0.0f;
+}
+
+- (NSString *)statusText
+{
+    return nil;
 }
 
 - (void)submitAsyncWithProgressBlock:(void(^)())progressBlock completionBlock:(void(^)(BOOL success, NSError *error))completionBlock

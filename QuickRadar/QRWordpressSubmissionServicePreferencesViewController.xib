@@ -2,18 +2,16 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSBox</string>
-			<string>NSButton</string>
-			<string>NSButtonCell</string>
 			<string>NSCustomObject</string>
 			<string>NSCustomView</string>
 			<string>NSImageCell</string>
@@ -33,7 +31,7 @@
 		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<object class="NSCustomObject" id="1001">
-				<string key="NSClassName">QRRadarSubmissionServicePreferencesViewController</string>
+				<string key="NSClassName">QRWordpressSubmissionServicePreferencesViewController</string>
 			</object>
 			<object class="NSCustomObject" id="1003">
 				<string key="NSClassName">FirstResponder</string>
@@ -41,56 +39,29 @@
 			<object class="NSCustomObject" id="1004">
 				<string key="NSClassName">NSApplication</string>
 			</object>
-			<object class="NSCustomObject" id="385866408">
-				<string key="NSClassName">PasswordStoring</string>
-			</object>
 			<object class="NSCustomView" id="1005">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="NSButton" id="499225495">
+					<object class="NSTextField" id="1040130930">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{409, 195}, {137, 32}}</string>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{73, 204}, {70, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="697648304">
-							<int key="NSCellFlags">67108864</int>
-							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Get an Account</string>
+						<object class="NSTextFieldCell" key="NSCell" id="971576182">
+							<int key="NSCellFlags">68157504</int>
+							<int key="NSCellFlags2">272630784</int>
+							<string key="NSContents">WordPress</string>
 							<object class="NSFont" key="NSSupport" id="459309385">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
 							</object>
-							<string key="NSCellIdentifier">_NS:9</string>
-							<reference key="NSControlView" ref="499225495"/>
-							<int key="NSButtonFlags">-2038284288</int>
-							<int key="NSButtonFlags2">129</int>
-							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
-							<int key="NSPeriodicDelay">200</int>
-							<int key="NSPeriodicInterval">25</int>
-						</object>
-						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-					</object>
-					<object class="NSTextField" id="791739701">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{73, 204}, {41, 17}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<string key="NSReuseIdentifierKey">_NS:1535</string>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="767478667">
-							<int key="NSCellFlags">68157504</int>
-							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Radar</string>
-							<reference key="NSSupport" ref="459309385"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
-							<reference key="NSControlView" ref="791739701"/>
+							<reference key="NSControlView" ref="1040130930"/>
 							<object class="NSColor" key="NSBackgroundColor" id="834719781">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
@@ -112,7 +83,7 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
-					<object class="NSBox" id="951746134">
+					<object class="NSBox" id="754488224">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">12</int>
 						<string key="NSFrame">{{20, 177}, {519, 5}}</string>
@@ -144,7 +115,7 @@
 						<int key="NSTitlePosition">0</int>
 						<bool key="NSTransparent">NO</bool>
 					</object>
-					<object class="NSImageView" id="31937102">
+					<object class="NSImageView" id="345553945">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<set class="NSMutableSet" key="NSDragTypes">
@@ -158,15 +129,14 @@
 						<string key="NSFrame">{{20, 188}, {48, 48}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="968618990"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSImageCell" key="NSCell" id="913408512">
+						<object class="NSImageCell" key="NSCell" id="1020837319">
 							<int key="NSCellFlags">134217728</int>
 							<int key="NSCellFlags2">33554432</int>
 							<object class="NSCustomResource" key="NSContents">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">AppleLogoTemplate</string>
+								<string key="NSResourceName">WordpressLogoTemplate</string>
 							</object>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<int key="NSAlign">0</int>
@@ -179,8 +149,8 @@
 					</object>
 					<object class="NSTextField" id="657238783">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">282</int>
-						<string key="NSFrame">{{17, 40}, {525, 50}}</string>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{17, 9}, {526, 47}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:1505</string>
@@ -188,7 +158,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="1008262465">
 							<int key="NSCellFlags">67108864</int>
 							<int key="NSCellFlags2">272760832</int>
-							<string key="NSContents">QuickRadar works by web scraping the Apple bug reporter web app. The username and password entered above are used by QuickRadar to log in to the web site on your behalf in order to post bugs.</string>
+							<string key="NSContents">QuickRadar creates a draft blog post via the XML-RPC endpoint at this URL. It sets post tile and description.</string>
 							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">11</double>
@@ -204,7 +174,7 @@
 					<object class="NSTextField" id="352098660">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{108, 113}, {71, 17}}</string>
+						<string key="NSFrame">{{73, 80}, {106, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="646972801"/>
@@ -220,10 +190,29 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
+					<object class="NSTextField" id="407149685">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{81, 144}, {98, 17}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="106406233"/>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="1011568713">
+							<int key="NSCellFlags">68157504</int>
+							<int key="NSCellFlags2">71304192</int>
+							<string key="NSContents">URL:</string>
+							<reference key="NSSupport" ref="459309385"/>
+							<reference key="NSControlView" ref="407149685"/>
+							<reference key="NSBackgroundColor" ref="834719781"/>
+							<reference key="NSTextColor" ref="949980496"/>
+						</object>
+						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+					</object>
 					<object class="NSTextField" id="968618990">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{108, 145}, {71, 17}}</string>
+						<string key="NSFrame">{{50, 112}, {129, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="788745973"/>
@@ -239,20 +228,21 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
-					<object class="NSTextField" id="788745973">
+					<object class="NSTextField" id="106406233">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">270</int>
-						<string key="NSFrame">{{184, 142}, {355, 22}}</string>
+						<string key="NSFrame">{{184, 142}, {356, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="352098660"/>
+						<reference key="NSNextKeyView" ref="968618990"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="213493814">
+						<object class="NSTextFieldCell" key="NSCell" id="119037350">
 							<int key="NSCellFlags">-1804599231</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents"/>
 							<reference key="NSSupport" ref="459309385"/>
-							<reference key="NSControlView" ref="788745973"/>
+							<string key="NSPlaceholderString">http://www.domain.com/xmlrpc.php</string>
+							<reference key="NSControlView" ref="106406233"/>
 							<bool key="NSDrawsBackground">YES</bool>
 							<reference key="NSBackgroundColor" ref="540515020"/>
 							<object class="NSColor" key="NSTextColor" id="338161783">
@@ -264,10 +254,31 @@
 						</object>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 					</object>
+					<object class="NSTextField" id="788745973">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">270</int>
+						<string key="NSFrame">{{184, 110}, {355, 22}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="352098660"/>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="213493814">
+							<int key="NSCellFlags">-1804599231</int>
+							<int key="NSCellFlags2">272630784</int>
+							<string key="NSContents"/>
+							<reference key="NSSupport" ref="459309385"/>
+							<string key="NSPlaceholderString">JohnAppleseed</string>
+							<reference key="NSControlView" ref="788745973"/>
+							<bool key="NSDrawsBackground">YES</bool>
+							<reference key="NSBackgroundColor" ref="540515020"/>
+							<reference key="NSTextColor" ref="338161783"/>
+						</object>
+						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+					</object>
 					<object class="NSSecureTextField" id="646972801">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{184, 110}, {355, 22}}</string>
+						<string key="NSFrame">{{184, 78}, {355, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="657238783"/>
@@ -277,6 +288,7 @@
 							<int key="NSCellFlags2">272630848</int>
 							<string key="NSContents"/>
 							<reference key="NSSupport" ref="459309385"/>
+							<string key="NSPlaceholderString">password</string>
 							<reference key="NSControlView" ref="646972801"/>
 							<bool key="NSDrawsBackground">YES</bool>
 							<reference key="NSBackgroundColor" ref="540515020"/>
@@ -291,7 +303,7 @@
 				<string key="NSFrameSize">{560, 256}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="31937102"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="858080682">
@@ -309,44 +321,64 @@
 					<int key="connectionID">2</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">getAnAccount:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="499225495"/>
-					</object>
-					<int key="connectionID">340</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.WordpressPassword</string>
 						<reference key="source" ref="646972801"/>
-						<reference key="destination" ref="385866408"/>
+						<reference key="destination" ref="858080682"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="646972801"/>
+							<reference key="NSDestination" ref="858080682"/>
+							<string key="NSLabel">value: values.WordpressPassword</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.WordpressPassword</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSContinuouslyUpdatesValue"/>
+								<string key="NSNullPlaceholder">password</string>
+							</dictionary>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
 					</object>
-					<int key="connectionID">190</int>
+					<int key="connectionID">295</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.username</string>
+						<string key="label">value: values.WordpressUser</string>
 						<reference key="source" ref="788745973"/>
 						<reference key="destination" ref="858080682"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="788745973"/>
 							<reference key="NSDestination" ref="858080682"/>
-							<string key="NSLabel">value: values.username</string>
+							<string key="NSLabel">value: values.WordpressUser</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.username</string>
+							<string key="NSKeyPath">values.WordpressUser</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSContinuouslyUpdatesValue"/>
+								<string key="NSNullPlaceholder">JohnAppleseed</string>
+							</dictionary>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">193</int>
+					<int key="connectionID">294</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">radarPasswordField</string>
-						<reference key="source" ref="385866408"/>
-						<reference key="destination" ref="646972801"/>
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.WordpressURL</string>
+						<reference key="source" ref="106406233"/>
+						<reference key="destination" ref="858080682"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="106406233"/>
+							<reference key="NSDestination" ref="858080682"/>
+							<string key="NSLabel">value: values.WordpressURL</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.WordpressURL</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSContinuouslyUpdatesValue"/>
+								<string key="NSNullPlaceholder">http://www.domain.com/xmlrpc.php</string>
+							</dictionary>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
 					</object>
-					<int key="connectionID">189</int>
+					<int key="connectionID">293</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -379,15 +411,16 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="1005"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="31937102"/>
-							<reference ref="951746134"/>
+							<reference ref="345553945"/>
+							<reference ref="754488224"/>
+							<reference ref="1040130930"/>
 							<reference ref="646972801"/>
 							<reference ref="788745973"/>
-							<reference ref="968618990"/>
+							<reference ref="106406233"/>
 							<reference ref="352098660"/>
+							<reference ref="968618990"/>
+							<reference ref="407149685"/>
 							<reference ref="657238783"/>
-							<reference ref="791739701"/>
-							<reference ref="499225495"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -457,58 +490,66 @@
 						<reference key="parent" ref="657238783"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">187</int>
-						<reference key="object" ref="385866408"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">191</int>
 						<reference key="object" ref="858080682"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">333</int>
-						<reference key="object" ref="31937102"/>
+						<int key="objectID">264</int>
+						<reference key="object" ref="407149685"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="913408512"/>
+							<reference ref="1011568713"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">334</int>
-						<reference key="object" ref="913408512"/>
-						<reference key="parent" ref="31937102"/>
+						<int key="objectID">265</int>
+						<reference key="object" ref="1011568713"/>
+						<reference key="parent" ref="407149685"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">335</int>
-						<reference key="object" ref="951746134"/>
-						<reference key="parent" ref="1005"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">336</int>
-						<reference key="object" ref="791739701"/>
+						<int key="objectID">270</int>
+						<reference key="object" ref="106406233"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="767478667"/>
+							<reference ref="119037350"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">337</int>
-						<reference key="object" ref="767478667"/>
-						<reference key="parent" ref="791739701"/>
+						<int key="objectID">273</int>
+						<reference key="object" ref="119037350"/>
+						<reference key="parent" ref="106406233"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">338</int>
-						<reference key="object" ref="499225495"/>
+						<int key="objectID">314</int>
+						<reference key="object" ref="345553945"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="697648304"/>
+							<reference ref="1020837319"/>
 						</array>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">339</int>
-						<reference key="object" ref="697648304"/>
-						<reference key="parent" ref="499225495"/>
+						<int key="objectID">315</int>
+						<reference key="object" ref="754488224"/>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">316</int>
+						<reference key="object" ref="1040130930"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="971576182"/>
+						</array>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">319</int>
+						<reference key="object" ref="971576182"/>
+						<reference key="parent" ref="1040130930"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">320</int>
+						<reference key="object" ref="1020837319"/>
+						<reference key="parent" ref="345553945"/>
 					</object>
 				</array>
 			</object>
@@ -520,15 +561,16 @@
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="164.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="165.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="187.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="191.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="333.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="334.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="335.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="336.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="337.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="338.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="339.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="264.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="265.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="270.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="273.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="314.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="315.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="316.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="319.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="320.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -542,46 +584,16 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">340</int>
+			<int key="maxID">336</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">PasswordStoring</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">radarPasswordField</string>
-						<string key="NS.object.0">NSSecureTextField</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">radarPasswordField</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">radarPasswordField</string>
-							<string key="candidateClassName">NSSecureTextField</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PasswordStoring.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">QRRadarSubmissionServicePreferencesViewController</string>
+					<string key="className">QRWordpressSubmissionServicePreferencesViewController</string>
 					<string key="superclassName">NSViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">getAnAccount:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">getAnAccount:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">getAnAccount:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/QRRadarSubmissionServicePreferencesViewController.h</string>
+						<string key="minorKey">./Classes/QRWordpressSubmissionServicePreferencesViewController.h</string>
 					</object>
 				</object>
 			</array>
@@ -595,7 +607,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">AppleLogoTemplate</string>
+			<string key="NS.key.0">WordpressLogoTemplate</string>
 			<string key="NS.object.0">{128, 128}</string>
 		</object>
 	</data>

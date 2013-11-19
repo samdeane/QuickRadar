@@ -51,7 +51,7 @@
 	
 	for (NSString *serviceID in services)
 	{
-		Class serviceClass = [services objectForKey:serviceID];
+		Class serviceClass = services[serviceID];
 		
 		if (![serviceClass isAvailable])
 		{
@@ -61,7 +61,7 @@
 		
 		if ([serviceClass requireCheckBox])
 		{
-			if ([[self.requestedOptionalServices objectForKey:serviceID] boolValue] == NO)
+			if ([(self.requestedOptionalServices)[serviceID] boolValue] == NO)
 			{
 				NSLog(@"%@ not requested", serviceID);
 				continue;
@@ -125,29 +125,41 @@
 			continue;
 		}
 		
-		/* Get on with it */
-		
-		[self.inProgress addObject:service];
-		[self.waiting removeObject:service];
-		
-		[service submitAsyncWithProgressBlock:^{
-			self.progressBlock();
-		} completionBlock:^(BOOL success, NSError *error) {
-			[self.inProgress removeObject:service];
-			[self.completed addObject:service];
-			
-			if (!success)
+		// Hopefully fix the OpenRadar multiple submissions bug
+		@synchronized(self)
+		{
+			if (![self.waiting containsObject:service])
 			{
-				NSLog(@"Failure by %@", [[service class] identifier]);
-				self.hasFiredCompletionBlock = YES;
-				self.completionBlock(NO, error);
-			}
-			else 
-			{
-				[self startNextAvailableServices];
+				continue;
 			}
 			
-		}];
+			/* Get on with it */
+			
+			[self.inProgress addObject:service];
+			[self.waiting removeObject:service];
+			
+			[service submitAsyncWithProgressBlock:^{
+				self.progressBlock();
+			} completionBlock:^(BOOL success, NSError *error) {
+				[self.inProgress removeObject:service];
+				[self.completed addObject:service];
+				
+				if (!success)
+				{
+					NSLog(@"Failure by %@", [[service class] identifier]);
+					self.hasFiredCompletionBlock = YES;
+					self.completionBlock(NO, error);
+				}
+				else
+				{
+					[self startNextAvailableServices];
+				}
+				
+			}];
+		}
+		
+		
+		
 	}
 	
 	if (self.inProgress.count == 0 && self.waiting.count == 0 && !self.hasFiredCompletionBlock)
@@ -180,5 +192,22 @@
 	return accumulator/number;
 }
 
+- (NSString *)statusText
+{
+    NSMutableString *overallStatus = nil;
+    
+	for (QRSubmissionService *service in self.inProgress)
+	{
+        NSString *serviceStatus = service.statusText;
+        if (serviceStatus == nil)
+            continue;
+        if (overallStatus == nil)
+            overallStatus = [serviceStatus mutableCopy];
+        else
+            [overallStatus appendFormat:@"; %@", serviceStatus];
+	}
+    
+    return overallStatus;
+}
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QRRadarSubmissionServicePreferencesViewController.h"
+#import "QRWordpressSubmissionServicePreferencesViewController.h"
 
-@interface QRRadarSubmissionServicePreferencesViewController ()
+@interface QRWordpressSubmissionServicePreferencesViewController ()
 
 @end
 
-@implementation QRRadarSubmissionServicePreferencesViewController
+@implementation QRWordpressSubmissionServicePreferencesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,13 +22,6 @@
     }
     
     return self;
-}
-
-- (IBAction)getAnAccount:(id)sender
-{
-	NSString *stringURL = @"https://developer.apple.com/programs/register/";
-	NSURL *url = [NSURL URLWithString:stringURL];
-	[[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 @end

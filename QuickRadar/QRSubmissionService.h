@@ -17,6 +17,7 @@ typedef enum {
 	submissionStatusFailed
 } SubmissionStatus;
 
+NSString * const QRWordpressSubmissionServiceIdentifier;
 NSString * const QRRadarSubmissionServiceIdentifier;
 NSString * const QROpenRadarSubmissionServiceIdentifier;
 NSString * const QRTwitterSubmissionServiceIdentifier;
@@ -54,7 +55,7 @@ NSString * const QRTwitterSubmissionServiceIdentifier;
 + (id)settingsIconPlatformAppropriateImage;
 
 - (SubmissionStatus)submissionStatus;
-
+- (NSString *)statusText;
 
 // Return YES if the requirements for using this service are met (e.g. user has entered username and password in Settings).
 // Don't block this method, so don't go and check the username/pass are valid, just return YES if they're present.

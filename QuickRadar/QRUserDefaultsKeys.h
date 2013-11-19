@@ -8,8 +8,11 @@
 
 
 #define QRShowInDockKey @"QRShowInDock"
+#define QRShowInStatusBarKey @"QRShowInStatusBar"
 
 #define QRHandleRdarURLsKey @"QRHandleRdarURLs"
+
+#define QRAppDotNetIncludeRdarLinksKey @"appDotNetIncludeRdarLinks"
 
 typedef enum {
 	rdarURLsMethodDoNothing = 1,

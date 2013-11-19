@@ -17,8 +17,11 @@
 @property (nonatomic, copy) NSString *HTTPMethod;
 @property (nonatomic, assign) BOOL sendMultipartFormData;
 @property (nonatomic, strong) QRWebScraper *cookiesSource;
-@property (nonatomic, strong) QRWebScraper *referrer;
+@property (nonatomic, strong) id referrer; // can be a QRWebScaper or a string
 @property (nonatomic, strong) NSData *returnedData;
+@property (nonatomic, strong) NSDictionary *customHeaders;
+@property (nonatomic, strong) NSData *customBody;
+@property (nonatomic, assign) BOOL shouldParseXML; // defaults to YES
 
 /* A synchronous method */
 - (BOOL)fetch:(NSError**)error;

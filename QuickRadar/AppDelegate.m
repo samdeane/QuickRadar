@@ -9,14 +9,14 @@
 #import "AppDelegate.h"
 #import "PTHotKeyLib.h"
 #import "QRRadarWindowController.h"
-#import <Growl/Growl.h>
 #import "QRPreferencesWindowController.h"
 #import "QRUserDefaultsKeys.h"
 #import "QRAppListManager.h"
 #import "SRCommon.h"
 #import "QRFileDuplicateWindowController.h"
+#import <Growl/Growl.h>
 
-@interface AppDelegate () <GrowlApplicationBridgeDelegate>
+@interface AppDelegate () <NSUserNotificationCenterDelegate, GrowlApplicationBridgeDelegate>
 {
 	NSMutableSet *windowControllerStore;
     NSStatusItem *statusItem;
@@ -36,15 +36,37 @@
 @synthesize preferencesWindowController = _preferencesWindowController;
 @synthesize applicationHasStarted = _applicationHasStarted;
 
++ (void)initialize
+{
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{
+	 QRShowInStatusBarKey: @YES,
+	 QRShowInDockKey : @NO,
+	 QRHandleRdarURLsKey : @(rdarURLsMethodFileDuplicate),
+     }];
+}
+
 #pragma mark NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //setup statusItem
-    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
-    statusItem.image = [NSImage imageNamed:@"MenubarTemplate"];
-	statusItem.highlightMode = YES;
-    statusItem.menu = self.menu;
+    BOOL shouldShowStatusBarItem = [[NSUserDefaults standardUserDefaults] boolForKey:QRShowInStatusBarKey];
+ 	BOOL shouldShowDockIcon = [[NSUserDefaults standardUserDefaults] boolForKey:QRShowInDockKey];
+		
+    if (shouldShowStatusBarItem) {
+        //setup statusItem
+        statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+        statusItem.image = [NSImage imageNamed:@"MenubarTemplate"];
+        statusItem.highlightMode = YES;
+        statusItem.menu = self.menu;
+    }
+	
+	if (shouldShowDockIcon)
+	{
+		ProcessSerialNumber psn = {0, kCurrentProcess};
+		verify_noerr(TransformProcessType(&psn,
+										  kProcessTransformToForegroundApplication));
+	}
+
 
     //apply hotkey
     [self applyHotkey];
@@ -55,21 +77,24 @@
     
 	windowControllerStore = [NSMutableSet set];
 	
-	[GrowlApplicationBridge setGrowlDelegate:self];
-	
-	self.preferencesWindowController = [[QRPreferencesWindowController alloc] initWithWindowNibName:@"QRPreferencesWindowController"];
-	self.duplicatesWindowController = [[QRFileDuplicateWindowController alloc] initWithWindowNibName:@"QRFileDuplicateWindow"];
-
-	BOOL shouldShowDockIcon = [[NSUserDefaults standardUserDefaults] boolForKey:QRShowInDockKey];
-	
-	if (shouldShowDockIcon)
+	if (NSClassFromString(@"NSUserNotificationCenter"))
 	{
-		ProcessSerialNumber psn = {0, kCurrentProcess};
-		verify_noerr(TransformProcessType(&psn, 
-										  kProcessTransformToForegroundApplication));
+		[[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+	}
+	else
+	{
+		[GrowlApplicationBridge setGrowlDelegate:self];
 	}
 	
-	[[NSUserDefaults standardUserDefaults] registerDefaults:@{QRHandleRdarURLsKey : @(rdarURLsMethodFileDuplicate)}];
+	self.preferencesWindowController = [[QRPreferencesWindowController alloc] init];
+	self.duplicatesWindowController = [[QRFileDuplicateWindowController alloc] initWithWindowNibName:@"QRFileDuplicateWindow"];
+
+	// Without either of these settings, the app would show no UI on startup. Show prefs window so that people can figure out how to change it back!
+	if (!shouldShowDockIcon && !shouldShowStatusBarItem)
+	{
+		[self.preferencesWindowController showWindow:self];
+	}
+
 	
 	// Start tracking apps.
 	[QRAppListManager sharedManager];
@@ -123,9 +148,9 @@
 
 - (NSDictionary *) registrationDictionaryForGrowl;
 {
-	NSArray *notifications = [NSArray arrayWithObjects:@"Submission Complete", @"Submission Failed", nil];
+	NSArray *notifications = @[@"Submission Complete", @"Submission Failed"];
 	
-	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:notifications, GROWL_NOTIFICATIONS_ALL, notifications, GROWL_NOTIFICATIONS_DEFAULT, nil];
+	NSDictionary *dict = @{GROWL_NOTIFICATIONS_ALL: notifications, GROWL_NOTIFICATIONS_DEFAULT: notifications};
 	return dict;
 }
 
@@ -140,11 +165,34 @@
 	
 	NSLog(@"Context %@", dict);
 	
-	NSString *stringURL = [dict objectForKey:@"URL"];
+	NSString *stringURL = dict[@"URL"];
 	
 	if (!stringURL)
 		return;
 	
+	NSURL *url = [NSURL URLWithString:stringURL];
+	[[NSWorkspace sharedWorkspace] openURL:url];
+}
+
+
+#pragma mark - NSUserNotificationCenter
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{
+	return YES;
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+	NSDictionary *dict = notification.userInfo;
+
+	NSLog(@"Context %@", dict);
+
+	NSString *stringURL = dict[@"URL"];
+
+	if (!stringURL)
+		return;
+
 	NSURL *url = [NSURL URLWithString:stringURL];
 	[[NSWorkspace sharedWorkspace] openURL:url];
 }
@@ -204,10 +252,8 @@
     
     //make default
 	if(!plistTool) {
-        plistTool = [NSDictionary dictionaryWithObjectsAndKeys:
-                     [NSNumber numberWithInt:49], @"keyCode",
-                     [NSNumber numberWithInt:cmdKey+controlKey+optionKey], @"modifiers",
-                     nil];
+        plistTool = @{@"keyCode": @49,
+                     @"modifiers": @(cmdKey+controlKey+optionKey)};
         
         [[NSUserDefaults standardUserDefaults] setObject:plistTool forKey:GlobalHotkeyName];
 	}
@@ -280,7 +326,7 @@
 			{
 				[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"appDotNetUserToken"];
 			}
-			
+			[[NSNotificationCenter defaultCenter] postNotificationName:@"AppDotNetAuthChangedNotification" object:self];
 		}
 	}
 	

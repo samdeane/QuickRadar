@@ -10,11 +10,11 @@
 #import "QRSubmissionController.h"
 #import "QRSubmissionService.h"
 #import "QRRadar.h"
-#import <Growl/Growl.h>
 #import "QRAppListPopover.h"
 #import "QRCachedRunningApplication.h"
 #import "NSButton+QuickRadar.h"
 #import "AppDelegate.h"
+#import <Growl/Growl.h>
 
 @interface QRRadarWindowController ()
 
@@ -35,41 +35,78 @@
 
 - (void)windowDidLoad
 {
-	NSDictionary *config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"]];
 	
 	[self.productMenu removeAllItems];
 	[self.classificationMenu removeAllItems];
 	[self.reproducibleMenu removeAllItems];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    NSError *error = nil;
+    NSArray *products = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Products" ofType:@"json"]] options:0 error:&error];
 	
-	for (NSString *str in [config objectForKey:@"products"])
+    [self.productMenu setAutoenablesItems:NO];
+    NSString *lastSectionTitle = nil;
+	for (NSDictionary *product in products)
 	{
-		[self.productMenu addItemWithTitle:str];
-		if ([str isEqualToString:[prefs objectForKey:@"RadarWindowSelectedProduct"]])
+        NSString *sectionTitle = product[@"categoryName"];
+        if (![sectionTitle isEqualToString:lastSectionTitle])
+        {
+            NSMenuItem *item = [[NSMenuItem alloc] init];
+            item.title = sectionTitle;
+            [item setEnabled:NO];
+            [self.productMenu.menu addItem:item];
+            
+            lastSectionTitle = sectionTitle;
+        }
+        
+        NSMenuItem *item = [[NSMenuItem alloc] init];
+        item.title = product[@"compNameForWeb"];
+        item.tag = [product[@"componentID"] integerValue];
+        item.indentationLevel = 1;
+        
+		[self.productMenu.menu addItem:item];
+        
+		if ([product[@"compNameForWeb"] isEqualToString:[prefs objectForKey:@"RadarWindowSelectedProduct"]])
 		{
-			[self.productMenu selectItemWithTitle:str];
+			[self.productMenu selectItemWithTitle:product[@"compNameForWeb"]];
 		}
 	}
-	for (NSString *str in [config objectForKey:@"classifications"])
+    
+    NSDictionary *config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"]];
+
+    
+    
+	for (NSDictionary *classification in config[@"classifications"])
 	{
-		[self.classificationMenu addItemWithTitle:str];
-		if ([str isEqualToString:[prefs objectForKey:@"RadarWindowSelectedClassification"]])
+        NSMenuItem *item = [[NSMenuItem alloc] init];
+        item.title = classification[@"name"];
+        item.tag = [classification[@"code"] integerValue];
+        
+        [self.classificationMenu.menu addItem:item];
+        
+        if ([classification[@"name"] isEqualToString:[prefs objectForKey:@"RadarWindowSelectedClassification"]])
 		{
-			[self.classificationMenu selectItemWithTitle:str];
+			[self.classificationMenu selectItemWithTitle:classification[@"name"]];
 		}
 	}
-	for (NSString *str in [config objectForKey:@"reproducible"])
+	for (NSDictionary *reproducible in config[@"reproducible"])
 	{
-		[self.reproducibleMenu addItemWithTitle:str];
-		if ([str isEqualToString:[prefs objectForKey:@"RadarWindowSelectedReproducible"]])
+        NSMenuItem *item = [[NSMenuItem alloc] init];
+        item.title = reproducible[@"name"];
+        item.tag = [reproducible[@"code"] integerValue];
+        
+        [self.reproducibleMenu.menu addItem:item];
+        
+        if ([reproducible[@"name"] isEqualToString:[prefs objectForKey:@"RadarWindowSelectedReproducible"]])
 		{
-			[self.reproducibleMenu selectItemWithTitle:str];
+			[self.reproducibleMenu selectItemWithTitle:reproducible[@"name"]];
 		}
 	}
 	
 	[self setUpCheckboxes];
 	
+    self.bodyTextView.font = [NSFont systemFontOfSize:[NSFont smallSystemFontSize]];
 	if (self.radarToPrepopulate.body.length>0)
 	{
 		self.bodyTextView.string = self.radarToPrepopulate.body;
@@ -93,7 +130,8 @@
         @"Describe circumstances where the problem occurs or does not occur, such as software versions and/or hardware configurations.\n"
         @"\n"
         @"Notes:\n"
-        @"Provide additional information, such as references to related problems, workarounds and relevant attachments.\n\n\n";
+        @"Provide additional information, such as references to related problems, workarounds and relevant attachments.\n";
+        [self.bodyTextView moveToBeginningOfDocument:nil];
 	}
 	
 	if (self.radarToPrepopulate.title.length>0)
@@ -171,8 +209,8 @@
 	
 	for (int i=0; i<orderedServiceIDs.count; i++)
 	{
-		NSString *serviceID = [orderedServiceIDs objectAtIndex:i];
-		NSString *checkboxText = [checkboxDict objectForKey:serviceID];
+		NSString *serviceID = orderedServiceIDs[i];
+		NSString *checkboxText = checkboxDict[serviceID];
 		
 		NSCell *cell = [self.checkboxMatrix cellAtRow:i column:0];
 		cell.title = checkboxText;
@@ -187,6 +225,8 @@
 - (void)prepopulateWithApp:(QRCachedRunningApplication *)app {
 	// Fill out the versions text field using the selected app.
 	NSString *text = app.unlocalizedName;
+    if (text == nil)
+        text = @"";
 	NSString *versionAndBuild = app.versionAndBuild;
 	if (versionAndBuild) text = [text stringByAppendingFormat:@" %@", versionAndBuild];
 	versionField.stringValue = text;
@@ -198,6 +238,8 @@
 	NSString *trimmedTitle = [titleField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \t"]];
 	if (!trimmedTitle || [trimmedTitle isEqualToString:@""] || self.userTypedTitle == NO) {
 		NSString *title = app.unlocalizedName;
+        if (title == nil)
+            title = @"";
 		NSString *version = app.version;
 		NSString *build = app.build;
 		if (version) title = [title stringByAppendingFormat:@" %@: ", version];
@@ -207,12 +249,14 @@
 	
 	// Try to guess the category for the selected app (Xcode -> Developer Tools, Pages -> iWork, etc.)
 	NSString *guess = [app guessCategory];
-	NSMenuItem *item = [self.productMenu itemWithTitle:guess];
-	if (item) {
-		[self.productMenu selectItem:item];
-		[self.productMenu blinkTwice];
-	}
-	
+    if (guess) {
+        NSMenuItem *item = [self.productMenu itemWithTitle:guess];
+        if (item) {
+            [self.productMenu selectItem:item];
+            [self.productMenu blinkTwice];
+        }
+    }
+
 	// If the selected app crashed recently, choose Crash from the Classification list.
 	if ([app didCrashRecently]) {
 		for (NSString *title in self.classificationMenu.itemTitles) {
@@ -224,6 +268,7 @@
 	}
 	
 	[self.titleField becomeFirstResponder];
+    [[self.window fieldEditor:NO forObject:self.titleField] moveToEndOfDocument:nil];
 }
 
 - (void)appListPopover:(QRAppListPopover *)popover selectedApp:(QRCachedRunningApplication *)app {
@@ -251,8 +296,11 @@
 	
 	QRRadar *radar = [[QRRadar alloc] init];
 	radar.product = self.productMenu.selectedItem.title;
+    radar.productCode = self.productMenu.selectedItem.tag;
 	radar.classification = self.classificationMenu.selectedItem.title;
+	radar.classificationCode = self.classificationMenu.selectedItem.tag;
 	radar.reproducible = self.reproducibleMenu.selectedItem.title;
+	radar.reproducibleCode = self.reproducibleMenu.selectedItem.tag;
 	radar.version = self.versionField.stringValue;
 	radar.title = self.titleField.stringValue;
 	radar.body = self.bodyTextView.string;
@@ -277,12 +325,16 @@
 		NSCell *cell = [self.checkboxMatrix cellAtRow:i column:0];
 		BOOL selected = [cell integerValue];
 		
-		[dict setObject:@(selected) forKey:cell.representedObject];
+		dict[cell.representedObject] = @(selected);
 	}
 	self.submissionController.requestedOptionalServices = [NSDictionary dictionaryWithDictionary:dict];
-	
+
 	[self.submissionController startWithProgressBlock:^{
 		self.progressBar.doubleValue = self.submissionController.progress;
+        NSString *statusText = self.submissionController.statusText;
+        if (statusText == nil)
+            statusText = @"Submitting";
+        self.submitStatusField.stringValue = [NSString stringWithFormat:@"%@...", statusText];
 	} completionBlock:^(BOOL success, NSError *error) {
 		if (success && radar.radarNumber > 0)
 		{
@@ -292,13 +344,26 @@
 				clickContext = @{ @"URL" : [NSString stringWithFormat:@"http://openradar.me/%ld", radar.radarNumber] };
 			}
 			
-			[GrowlApplicationBridge notifyWithTitle:@"Submission Complete"
-										description:[NSString stringWithFormat:@"Bug submitted as number %ld.", radar.radarNumber]
-								   notificationName:@"Submission Complete"
-										   iconData:nil
-										   priority:0
-										   isSticky:NO
-									   clickContext:clickContext];
+			if (NSClassFromString(@"NSUserNotification"))
+			{
+				NSUserNotification *notification = [[NSUserNotification alloc] init];
+				notification.title = @"Submission Complete";
+				notification.informativeText = [NSString stringWithFormat:@"Bug submitted as number %ld.", radar.radarNumber];
+				notification.userInfo = clickContext;
+				[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+			}
+			else
+			{
+				[GrowlApplicationBridge notifyWithTitle:@"Submission Complete"
+											description:[NSString stringWithFormat:@"Bug submitted as number %ld.", radar.radarNumber]
+									   notificationName:@"Submission Complete"
+											   iconData:nil
+											   priority:0
+											   isSticky:NO
+										   clickContext:clickContext];
+
+			}
+			
 			
 			
 			// Move the window off screen, like Mail.app
@@ -312,20 +377,21 @@
 			
 			// Close when animation is done.
 			[self.window performSelector:@selector(close) withObject:nil afterDelay:[self.window animationResizeTime:rect]];
-//			[self.window close];
 		}
 		else
 		{
-			[NSApp presentError:error];
-			
-			
+            [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:NULL contextInfo:NULL];
+            if (error.domain == NSURLErrorDomain)
+                NSLog(@"%@ - %@", (error.userInfo)[NSLocalizedDescriptionKey],
+                      (error.userInfo)[NSURLErrorFailingURLStringErrorKey]);
+
 			[self.submitButton setEnabled:YES];
 			[self.spinner stopAnimation:self];
-			
+            self.submitStatusField.stringValue = @"";
 		}
-		
+
 	}];
-	
+
 }
 
 - (void)controlTextDidChange:(NSNotification *)aNotification {
